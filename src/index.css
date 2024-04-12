@@ -7,7 +7,7 @@
 html {
     /* Sizes */
     --font-size-large: 38px;
-    --font-size-medium: 18px;
+    --font-size-medium: 24px;
     --font-size: 12px;
 
     /* Colors */
@@ -93,6 +93,45 @@ div.stretch {
 }
 
 
+.cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+@media screen and (max-width: 650px) {
+    .cards {
+        flex-direction: column;
+        grid-template-columns: 1fr;
+        flex-wrap: nowrap;
+    }
+
+    .cards>game-card {
+        min-width: unset;
+        width: unset;
+        max-width: unset;
+        transform: none;
+        min-height: unset;
+        max-height: unset;
+        height: 100px;
+        margin-top: 0.5em;
+    }
+
+    .cards>game-card>.image {
+        width: 50%;
+        height: 100%;
+    }
+
+    .cards>game-card>.title {
+        left: 0;
+        right: 50%;
+        top: unset;
+        bottom: 0.25em;
+        width: auto;
+    }
+}
 
 /* Components */
 game-card {
@@ -104,15 +143,13 @@ game-card {
     user-select: none;
 
     min-width: 240px;
-    width: 30%;
+    width: 100%;
     max-width: 300px;
-    min-height: 200px;
-    height: 50%;
-    max-height: 500px;
+    height: 250px;
 
     margin: 1em;
     padding: 0;
-    border-radius: 1em;
+    border-radius: 0.5em;
     color: var(--text-button-color);
     background: var(--background-button);
     box-shadow:
@@ -134,6 +171,7 @@ game-card>.image>img {
     height: 100%;
     width: 100%;
     transition: 0.6s ease;
+    pointer-events: none;
     object-fit: cover;
 }
 
@@ -141,7 +179,7 @@ game-card>.title {
     position: absolute;
     top: calc(var(--image-size) - 1.25em);
     width: 100%;
-    font-size: var(--font-size-large);
+    font-size: var(--font-size-medium);
     font-weight: 700;
     text-shadow:
         0 1px 5px #00000075,
