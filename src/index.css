@@ -14,8 +14,8 @@ html {
     --text-primary-color: black;
     --text-secondary-color: #707773;
     --text-button-color: whitesmoke;
-    --background: whitesmoke;
-    --background-button: whitesmoke;
+    --background: #d9d9da;
+    --background-button: #e7e7e9;
     --shadow: rgba(0, 0, 0, 0.1);
     --highlight: white;
 }
