@@ -1,11 +1,13 @@
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
 html {
     /* Sizes */
-    --font-size-large: 22px;
+    --font-size-large: 38px;
+    --font-size-medium: 18px;
     --font-size: 12px;
 
     /* Colors */
@@ -33,11 +35,15 @@ body {
     background: var(--background);
 
     font-size: var(--font-size);
+    font-family: Arial, Helvetica, sans-serif;
 }
 
+h1 {
+    font-size: var(--font-size-large);
+}
 h2 {
     color: var(--text-secondary-color);
-    font-size: var(--font-size-large);
+    font-size: var(--font-size-medium);
 }
 
 div {
@@ -61,4 +67,5 @@ div.horizontal-orientation {
 
 div.center-content {
     justify-content: center;
+    align-items: center;
 }
