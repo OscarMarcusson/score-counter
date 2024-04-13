@@ -6,7 +6,7 @@
 
 html {
     /* Sizes */
-    --font-size-large: 38px;
+    --font-size-large: 30px;
     --font-size-medium: 24px;
     --font-size: 12px;
 
@@ -17,6 +17,7 @@ html {
     --background: #d9d9da;
     --background-button: #e7e7e9;
     --shadow: rgba(0, 0, 0, 0.1);
+    --shadow-hard: rgba(0, 0, 0, 0.15);
     --highlight: white;
 }
 
@@ -28,6 +29,7 @@ html.dark {
     --background: #121213;
     --background-button: #2f2f30;
     --shadow: rgba(0, 0, 0, 0.4);
+    --shadow-hard: rgba(0, 0, 0, 0.6);
     --highlight: #5353557e;
 }
 
@@ -71,25 +73,38 @@ div {
     justify-content: start;
 }
 
+button,
+game-card {
+    border-radius: 0.5em;
+    border: 1px solid var(--shadow-hard);
+    box-shadow: 0 1px 3px var(--shadow);
+    background: var(--background-button);
+}
+
+.top-bar {
+    flex-direction: row;
+    align-items: stretch;
+    border-bottom: 1px solid var(--shadow);
+    background: var(--background-button);
+    z-index: 100;
+    box-shadow:
+        0 0 3px var(--shadow),
+        0 0 10px var(--shadow),
+        0 0 30px var(--shadow);
+    margin-bottom: 0.5em;
+    padding: 0.5em;
+}
+
+.top-bar>button {
+    min-width: 40px;
+}
+
+.stretch {
+    flex-grow: 1;
+}
+
 .center-text {
     text-align: center;
-}
-
-.large-padding {
-    padding: 4em;
-}
-
-div.horizontal-orientation {
-    flex-direction: row;
-}
-
-div.center-content {
-    justify-content: center;
-    align-items: center;
-}
-
-div.stretch {
-    flex-grow: 1;
 }
 
 
@@ -149,14 +164,11 @@ game-card {
 
     margin: 1em;
     padding: 0;
-    border-radius: 0.5em;
     color: var(--text-button-color);
     background: var(--background-button);
     box-shadow:
-        0 0.25em 1em var(--shadow),
-        0 2px 4px var(--shadow),
-        0 -1px 2px inset var(--shadow),
-        0 1px 1px inset var(--highlight);
+        0 0.25em 1em var(--shadow-hard),
+        0 2px 4px var(--shadow);
     transition: transform 0.6s ease;
 }
 
