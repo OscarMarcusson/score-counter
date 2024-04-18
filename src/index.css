@@ -8,14 +8,18 @@ html {
     /* Sizes */
     --font-size-large: 30px;
     --font-size-medium: 24px;
-    --font-size: 12px;
+    --font-size: min(max(14px, 4vw), 18px);
 
     /* Colors */
     --text-primary-color: black;
+    --text-primary-color-hover: #3e4144;
+    --text-primary-color-click: #798796;
     --text-secondary-color: #707773;
     --text-button-color: whitesmoke;
     --background: #d9d9da;
     --background-button: #e7e7e9;
+    --background-button-hover: #f1f1f7;
+    --background-button-click: #f5f5ff;
     --shadow: rgba(0, 0, 0, 0.1);
     --shadow-hard: rgba(0, 0, 0, 0.15);
     --highlight: white;
@@ -223,4 +227,67 @@ game-card:hover>.image>img {
 game-card:hover>.title {
     transition: transform 0.4s ease;
     transform: scale(1.1) translateY(0.15em);
+}
+
+
+/* Score row */
+score-row {
+    user-select: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid var(--shadow-hard);
+    border-radius: 4px;
+    background: var(--background-button);
+    transition: 0.3s ease-out;
+}
+
+score-row:hover,
+score-row:focus {
+    transition: 0s;
+    color: var(--text-primary-color-hover);
+    background: var(--background-button-hover);
+}
+
+score-row:active {
+    transition: 0s;
+    color: var(--text-primary-color-click);
+    background: var(--background-button-click);
+}
+
+score-row>* {
+    border-right: 1px solid var(--shadow);
+    width: 0;
+    flex-grow: 1;
+    transition: 0.3s ease-out;
+}
+
+score-row>*:last-child {
+    border-right: none;
+}
+
+score-row>.text {
+    padding: 1em;
+    font-size: var(--font-size);
+    line-height: var(--font-size);
+}
+
+score-row>.name {
+    flex-grow: 3;
+}
+
+score-row>.score {
+    min-width: 5em;
+    text-align: right;
+    font-size: calc(var(--font-size) * 1.25);
+}
+
+score-row:hover>.name,
+score-row:focus>.name {
+    transform: translateX(4px);
+}
+
+score-row:hover>.score,
+score-row:focus>.score {
+    transform: translateX(2px);
 }
