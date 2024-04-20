@@ -240,6 +240,7 @@ score-row {
     border-radius: 4px;
     background: var(--background-button);
     transition: 0.3s ease-out;
+    overflow: hidden;
 }
 
 score-row:hover,
@@ -290,4 +291,108 @@ score-row:focus>.name {
 score-row:hover>.score,
 score-row:focus>.score {
     transform: translateX(2px);
+}
+
+
+/* Window */
+modal-window {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+}
+
+modal-window.hide {
+    user-select: none;
+    pointer-events: none;
+}
+
+modal-window>.background {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: color-mix(in srgb, var(--background) 50%, transparent);
+    backdrop-filter: blur(8px);
+    transition: opacity 0.3s ease-out;
+}
+
+modal-window.hide>.background {
+    opacity: 0;
+}
+
+modal-window>.window {
+    --margin: min(1em, 2vw);
+    display: block;
+    position: absolute;
+    left: var(--margin);
+    top: var(--margin);
+    right: var(--margin);
+    bottom: var(--margin);
+    max-width: calc(100% - var(--margin) * 2);
+    max-height: calc(100% - var(--margin) * 2);
+    box-shadow: 0 3px 6px var(--shadow-hard), 0 8px 24px var(--shadow-hard);
+    border: 1px solid var(--background-button);
+    background: var(--background);
+    border-radius: 0.5rem;
+    margin: auto;
+    overflow: hidden;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+modal-window.hide>.window {
+    transform: scale(0.9);
+    opacity: 0;
+}
+
+modal-window>.window>* {
+    padding: 1em;
+}
+
+modal-window>.window>.title {
+    display: flex;
+    flex-direction: row;
+}
+
+modal-window>.window>.title>span {
+    flex-grow: 1;
+    text-align: center;
+}
+
+modal-window>.window>.title>.icon {
+    padding: 1em;
+    margin-top: -1em;
+    margin-left: -1em;
+    margin-bottom: -1em;
+    width: 1rem;
+    height: 1rem;
+    display: block;
+}
+
+modal-window>.window>.title>button.x {
+    margin-top: -1em;
+    margin-right: -1em;
+    margin-bottom: -1em;
+    padding: 1em;
+    font-size: 1rem;
+    line-height: 1rem;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    outline: none;
+    background: none;
+    user-select: none;
+}
+
+modal-window>.window>.title>button.x:hover {
+    color: red;
+}
+
+modal-window>.window>.title>button.x:active {
+    color: #ff7f9f;
 }
