@@ -280,7 +280,16 @@ score-row>.name {
 score-row>.score {
     min-width: 5em;
     text-align: right;
-    font-size: calc(var(--font-size) * 1.25);
+    font-size: calc(var(--font-size) * 1.5);
+    margin: -0.75em -0.25em;
+}
+
+score-row.leader>.score {
+    --color: 50, 205, 50;
+    color: rgb(var(--color));
+    text-shadow:
+        0 0 5px rgba(var(--color), 0.6),
+        0 0 16px rgba(var(--color), 0.3);
 }
 
 score-row:hover>.name,
