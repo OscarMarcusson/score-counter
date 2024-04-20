@@ -1,6 +1,6 @@
 export class ModalWindow extends HTMLElement {
     static observedAttributes = ["name", "width", "height"];
-    name;
+    title;
     width;
     height;
     content;
@@ -44,14 +44,26 @@ export class ModalWindow extends HTMLElement {
         const titleBar = document.createElement('div');
         titleBar.className = 'title';
         window.appendChild(titleBar);
-        
+
         const leftArea = document.createElement('div');
         leftArea.className = 'icon';
         titleBar.appendChild(leftArea);
-        
-        const title = document.createElement('span');
-        title.innerText = this.name;
-        titleBar.appendChild(title);
+
+        if (this.title?.editable) {
+            const title = document.createElement('input');
+            title.value = this.title?.value ?? 'No name';
+            title.className = 'title';
+            titleBar.appendChild(title);
+            if (this.title.onChange) {
+                title.addEventListener('input', () => this.title.onChange(title.value));
+            }
+        }
+        else {
+            const title = document.createElement('span');
+            title.innerText = this.title?.value ?? 'No name';
+            title.className = 'title';
+            titleBar.appendChild(title);
+        }
 
         const closeButton = document.createElement('button');
         closeButton.className = 'x';
@@ -76,7 +88,7 @@ export class ModalWindow extends HTMLElement {
     }
 
     close() {
-        
+
     }
 }
 
