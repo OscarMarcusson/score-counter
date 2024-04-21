@@ -11,7 +11,17 @@ export class ScoreRow extends HTMLElement {
         if (this._nameElement)
             this._nameElement.innerText = value;
     };
-    score;
+
+    _score = 0;
+    _scoreElement;
+    get score() { return this._score; }
+    set score(value) {
+        if (!Number.isInteger(value))
+            value = Number.parseInt(value);
+        this._score = value;
+        if (this._scoreElement)
+            this._scoreElement.innerText = value;
+    };
 
     constructor() {
         super();
@@ -28,10 +38,37 @@ export class ScoreRow extends HTMLElement {
             document.body.appendChild(window);
 
             const data = await getDataAsync('monitor-9ball');
-            const dataDebug = document.createElement('p');
-            dataDebug.innerText = JSON.stringify(data);
-            window.appendChild(dataDebug);
+            for (const actionKey of Object.keys(data?.actions?.good)) {
+                const action = data.actions.good[actionKey];
+                this._buildActionButton(window, actionKey, action, 'good');
+            }
+            for (const actionKey of Object.keys(data?.actions?.bad)) {
+                const action = data.actions.bad[actionKey];
+                this._buildActionButton(window, actionKey, action, 'bad');
+            }
         }
+    }
+
+    _buildActionButton(parent, actionKey, action, className) {
+        const button = document.createElement('button');
+        button.className = className;
+        button.innerText = action.name;
+        const context = this;
+        button.onclick = function () {
+            const scoreChange = context._calc(action.score);
+            if (context.score == null)
+                context.score = 0;
+            else if (!Number.isInteger(context.score))
+                context.score = Number.parseInt(context.score);
+            context.score += scoreChange;
+        };
+        parent.appendChild(button);
+    }
+
+    _calc(str) {
+        if (!str)
+            return 0;
+        return parseFloat(str);
     }
 
     connectedCallback() {
@@ -45,6 +82,7 @@ export class ScoreRow extends HTMLElement {
         score.innerText = this.score;
         score.className = 'text score';
         this.appendChild(score);
+        this._scoreElement = score;
     }
 
     attributeChangedCallback(name, oldValue, newValue) {

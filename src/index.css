@@ -83,6 +83,12 @@ game-card {
     border: 1px solid var(--shadow-hard);
     box-shadow: 0 1px 3px var(--shadow);
     background: var(--background-button);
+    outline: none;
+}
+
+button:hover {
+    color: var(--text-primary-color-hover);
+    background: var(--background-button-hover);
 }
 
 .top-bar {
@@ -337,7 +343,9 @@ modal-window.hide>.background {
 
 modal-window>.window {
     --margin: min(1em, 2vw);
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
     position: absolute;
     left: var(--margin);
     top: var(--margin);
@@ -404,5 +412,41 @@ modal-window>.window>.title>button.x:active {
 }
 
 modal-window>.window>.content {
-    padding: 1em;
+    height: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+    padding: 0.25em;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+modal-window>.window>.content>button {
+    min-width: 100%;
+    padding: 0.5em;
+    font-size: var(--font-size);
+    border-radius: 0;
+    border: 1px solid var(--shadow-hard);
+    border-bottom: none;
+    position: relative;
+    overflow: hidden;
+}
+
+modal-window>.window>.content>button:first-of-type {
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+}
+
+modal-window>.window>.content>button:last-of-type {
+    border-bottom-left-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+    border: 1px solid var(--shadow-hard);
+}
+
+modal-window>.window>.content>button.good {
+    color: #07a34d;
+}
+
+modal-window>.window>.content>button.bad {
+    color: red;
 }
