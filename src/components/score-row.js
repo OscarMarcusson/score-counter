@@ -61,6 +61,7 @@ export class ScoreRow extends HTMLElement {
             else if (!Number.isInteger(context.score))
                 context.score = Number.parseInt(context.score);
             context.score += scoreChange;
+            parent.close();
         };
         parent.appendChild(button);
     }

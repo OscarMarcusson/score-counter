@@ -5,6 +5,7 @@ export class ModalWindow extends HTMLElement {
     height;
     content;
     appendChildToRoot;
+    close;
 
 
     constructor() {
@@ -25,12 +26,13 @@ export class ModalWindow extends HTMLElement {
 
     connectedCallback() {
         const root = this;
-        const background = document.createElement('div');
-        background.className = 'background';
-        background.onclick = function () {
+        this.close = function () {
             root.classList.add('hide');
             setTimeout(() => root.remove(), 300);
         };
+        const background = document.createElement('div');
+        background.className = 'background';
+        background.onclick = this.close;
         this.appendChildToRoot(background);
 
         const window = document.createElement('div');
@@ -88,7 +90,7 @@ export class ModalWindow extends HTMLElement {
     }
 
     close() {
-
+        this.close();
     }
 }
 
