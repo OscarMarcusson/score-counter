@@ -1,4 +1,5 @@
 import { ModalWindow } from "./modal-window.js";
+import { getData as getDataAsync } from "../data/database.js";
 
 export class ScoreRow extends HTMLElement {
     static observedAttributes = ["name", "score"];
@@ -15,7 +16,7 @@ export class ScoreRow extends HTMLElement {
     constructor() {
         super();
 
-        this.onclick = function () {
+        this.onclick = async function () {
             const window = new ModalWindow();
             window.title = {
                 value: this.name,
@@ -26,9 +27,10 @@ export class ScoreRow extends HTMLElement {
             window.height = 400;
             document.body.appendChild(window);
 
-            const button = document.createElement('button');
-            button.innerText = "Hello World";
-            window.appendChild(button);
+            const data = await getDataAsync('monitor-9ball');
+            const dataDebug = document.createElement('p');
+            dataDebug.innerText = JSON.stringify(data);
+            window.appendChild(dataDebug);
         }
     }
 
