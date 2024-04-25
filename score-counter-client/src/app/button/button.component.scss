@@ -1,0 +1,23 @@
+:host {
+    border: 1px solid gray;
+    border-radius: 3px;
+    padding: 0.5em;
+    user-select: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    height: 2em;
+
+    & > .label {
+        flex-grow: 1;
+    }
+
+    & > .separator {
+        display: block;
+        background: gray;
+        width: 1px;
+        height: 2em;
+        margin: -0.5em 0.5em;
+    }
+}
