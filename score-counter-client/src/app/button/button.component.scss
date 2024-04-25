@@ -1,23 +1,51 @@
 :host {
-    border: 1px solid gray;
-    border-radius: 3px;
-    padding: 0.5em;
-    user-select: none;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    position: relative;
+  color: var(--text-button-color);
+  background: var(--background-button);
+  border: 1px solid var(--shadow-hard);
+  border-radius: 3px;
+  padding: 0.5em;
+  user-select: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  height: 2em;
+
+  & > .label {
+    flex-grow: 1;
+  }
+
+  & > .separator {
+    display: block;
+    background: gray;
+    width: 1px;
     height: 2em;
+    margin: -0.5em 0.5em;
+  }
 
-    & > .label {
-        flex-grow: 1;
-    }
+  // Hover & click overlay
+  --overlay-color: transparent;
+  --overlay-opacity: 0;
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--overlay-color);
+    opacity: var(--overlay-opacity);
+  }
 
-    & > .separator {
-        display: block;
-        background: gray;
-        width: 1px;
-        height: 2em;
-        margin: -0.5em 0.5em;
-    }
+  &:hover {
+    background: var(--background-button-hover);
+    --overlay-color: var(--background-button-hover);
+    --overlay-opacity: 0.25;
+  }
+  &:active {
+    background: var(--background-button-click);
+    --overlay-color: var(--background-button-click);
+    --overlay-opacity: 0.5;
+  }
 }

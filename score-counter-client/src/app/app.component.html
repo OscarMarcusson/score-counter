@@ -1,10 +1,10 @@
 <main class="main">
   <h1>Score Counter</h1>
   <div class="scores">
-    <app-button [text]="'Mattias'" [separator]="true">6</app-button>
-    <app-button [text]="'Pettersson'" [separator]="true">3</app-button>
-    <app-button [text]="'Niko'" [separator]="true">-7</app-button>
-    <app-button [text]="'Oscar'" [separator]="true">42</app-button>
+    <app-score-row [name]="'Mattias'" [score]="7"/>
+    <app-score-row [name]="'Pettersson'" [score]="3"/>
+    <app-score-row [name]="'Niko'" [score]="-99"/>
+    <app-score-row [name]="'Oscar'" [score]="42" [highlight]="true"/>
   </div>
 </main>
 

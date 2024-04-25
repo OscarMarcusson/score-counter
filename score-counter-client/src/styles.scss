@@ -1,1 +1,58 @@
-/* You can add global styles to this file, and also import other style files */
+html {
+  // Sizes
+  --font-size-large: 30px;
+  --font-size-medium: 24px;
+  --font-size: min(max(12px, 3vw), 16px);
+
+  // Colors
+  --text-primary-color: black;
+  --text-primary-color-hover: #3e4144;
+  --text-primary-color-click: #798796;
+  --text-secondary-color: #707773;
+  --text-button-color: rgb(18, 23, 27);
+  --background: #d9d9da;
+  --background-button: #e7e7e9;
+  --background-button-hover: #f1f1f7;
+  --background-button-click: #f5f5ff;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --shadow-hard: rgba(0, 0, 0, 0.15);
+  --highlight: white;
+
+  // Dark mode
+  &.dark {
+    --text-primary-color: whitesmoke;
+    --text-secondary-color: #707773;
+    --text-button-color: #121213;
+    --background: #121213;
+    --background-button: #2f2f30;
+    --shadow: rgba(0, 0, 0, 0.4);
+    --shadow-hard: rgba(0, 0, 0, 0.6);
+    --highlight: #5353557e;
+  }
+
+  // Apply default colors
+  color: var(--text-primary-color);
+  background: var(--background);
+
+  // Apply default font
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: var(--font-size);
+}
+
+// Window layout
+body, html {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+    max-width: 700px;
+    margin: auto;
+}

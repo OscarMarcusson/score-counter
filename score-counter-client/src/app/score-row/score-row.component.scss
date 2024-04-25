@@ -1,0 +1,12 @@
+.score {
+    width: 2.5em;
+    text-align: right;
+    padding-right: 0.5em;
+    font-size: 20px;
+    font-weight: 100;
+    font-family: 'Courier New', Courier, monospace;
+
+    &.highlight {
+        color: limegreen;
+    }
+}
