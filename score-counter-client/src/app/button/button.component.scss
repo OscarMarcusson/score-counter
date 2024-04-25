@@ -23,6 +23,20 @@
     margin: -0.5em 0.5em;
   }
 
+  // Icon mode
+  &.icon {
+    width: 2em;
+    & > .label {
+        overflow: hidden;
+        text-align: center;
+        font-weight: 100;
+        font-size: 1.5em;
+    }
+    & > :not(.label) {
+        display: none;
+    }
+  }
+
   // Hover & click overlay
   --overlay-color: transparent;
   --overlay-opacity: 0;

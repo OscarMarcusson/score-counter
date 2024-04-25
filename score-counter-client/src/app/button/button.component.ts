@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, HostListener, Input } from '@angular/core';
 
 @Component({
   selector: 'app-button',
@@ -11,4 +11,6 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 export class ButtonComponent {
   @Input() text: string = '';
   @Input() separator: boolean = false;
+  @HostBinding('class.icon')
+  @Input() icon: boolean = false;
 }

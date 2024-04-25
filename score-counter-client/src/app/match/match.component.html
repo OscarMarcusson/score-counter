@@ -1,0 +1,12 @@
+<div class="header">
+  <span class="round-number">Round 3</span>
+  <app-button [text]="'+'" [icon]="true" />
+</div>
+
+<div class="content">
+  @for (player of players; track $index) {
+  <app-score-row [name]="player.name" [score]="player.score" />
+  }
+</div>
+
+<app-button class="add-new" [text]="'+'" [icon]="true" />
