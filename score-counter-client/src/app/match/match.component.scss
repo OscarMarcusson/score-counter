@@ -29,8 +29,14 @@
     flex-shrink: 1;
     flex-grow: 1;
     height: 0;
-}
 
-.add-new {
-    margin-top: 1px;
+    .add-new {
+        background: linear-gradient(0deg, var(--background), transparent);
+        position: sticky;
+        bottom: 0;
+        border-top: 1px solid var(--shadow);
+        padding-top: 3px;
+        margin-top: 2px;
+        backdrop-filter: blur(12px);
+    }
 }

@@ -1,5 +1,9 @@
 <main class="main">
-  <h1>Score Counter</h1>
+  <div class="menu">
+    <app-button [text]="'Home'"/>
+    <app-button [text]="'Statistics'"/>
+    <app-button [text]="'Settings'"/>
+  </div>
   <div class="scores">
     <app-match [players]="players"></app-match>
   </div>

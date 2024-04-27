@@ -7,6 +7,7 @@
   @for (player of players; track $index) {
   <app-score-row [name]="player.name" [score]="player.score" />
   }
+  <div class="add-new">
+    <app-button [text]="'+'" [icon]="true" />
+  </div>
 </div>
-
-<app-button class="add-new" [text]="'+'" [icon]="true" />
