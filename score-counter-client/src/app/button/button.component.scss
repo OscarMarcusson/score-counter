@@ -1,7 +1,9 @@
 :host {
   color: var(--text-button-color);
   background: var(--background-button);
-  border: 1px solid var(--shadow-hard);
+  border: 1px solid var(--highlight);
+  outline: 1px solid var(--shadow-hard);
+  margin: 1px;
   border-radius: 3px;
   padding: 0.5em;
   user-select: none;

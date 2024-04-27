@@ -16,19 +16,7 @@ html {
   --background-button-click: #f5f5ff;
   --shadow: rgba(0, 0, 0, 0.1);
   --shadow-hard: rgba(0, 0, 0, 0.15);
-  --highlight: white;
-
-  // Dark mode
-  &.dark {
-    --text-primary-color: whitesmoke;
-    --text-secondary-color: #707773;
-    --text-button-color: #121213;
-    --background: #121213;
-    --background-button: #2f2f30;
-    --shadow: rgba(0, 0, 0, 0.4);
-    --shadow-hard: rgba(0, 0, 0, 0.6);
-    --highlight: #5353557e;
-  }
+  --highlight: #f7f7f7;
 
   // Apply default colors
   color: var(--text-primary-color);
@@ -55,4 +43,21 @@ body, html {
 body {
     max-width: 700px;
     margin: auto;
+}
+
+// Dark mode
+@media (prefers-color-scheme: dark) {
+  html {
+    --text-primary-color: whitesmoke;
+    --text-secondary-color: #707773;
+    --text-button-color: #121213;
+    --text-button-color: #c3d6d5;
+    --background: #121213;
+    --background-button: #1e2122;
+    --background-button-hover: #25272b;
+    --background-button-click: #242829;
+    --shadow: rgba(0, 0, 0, 0.4);
+    --shadow-hard: rgba(0, 0, 0, 0.6);
+    --highlight: #2c2c31;
+  }
 }
