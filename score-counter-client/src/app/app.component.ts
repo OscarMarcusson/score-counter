@@ -7,12 +7,7 @@ import { MatchComponent, Player } from './match/match.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    RouterOutlet,
-    ButtonComponent,
-    ScoreRowComponent,
-    MatchComponent
-  ],
+  imports: [RouterOutlet, ButtonComponent, ScoreRowComponent, MatchComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

@@ -5,9 +5,20 @@
 
 <div class="content">
   @for (player of players; track $index) {
-  <app-score-row [name]="player.name" [score]="player.score" />
+  <app-score-row
+    [name]="player.name"
+    [score]="player.score"
+    (click)="openModal(player)"
+  />
   }
   <div class="add-new">
     <app-button [text]="'+'" [icon]="true" />
   </div>
 </div>
+
+<app-modal #modal [show]="showModal">
+  <app-button header [text]="'☰'" [icon]="true" />
+  <h2 header class="modal-title">{{selectedPlayer?.name}}</h2>
+  <app-button header [text]="'X'" [icon]="true" (click)="closeModal()" />
+  <p content>Test</p>
+</app-modal>
