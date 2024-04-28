@@ -18,7 +18,7 @@
 
 <app-modal #modal [show]="showModal">
   <app-button header [text]="'☰'" [icon]="true" />
-  <h2 header class="modal-title">{{selectedPlayer?.name}}</h2>
+  <input header class="modal-title" [value]="selectedPlayer?.name" (input)="onEditName($event)">
   <app-button header [text]="'X'" [icon]="true" (click)="closeModal()" />
   <p content>Test</p>
 </app-modal>

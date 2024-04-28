@@ -1,14 +1,21 @@
-import { Component, ElementRef, EnvironmentInjector, Input, ViewChild, createComponent } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EnvironmentInjector,
+  Input,
+  ViewChild,
+  createComponent,
+} from '@angular/core';
 import { ScoreRowComponent } from '../score-row/score-row.component';
 import { ButtonComponent } from '../button/button.component';
 import { ModalComponent } from '../modal/modal.component';
 
 @Component({
-    selector: 'app-match',
-    standalone: true,
-    templateUrl: './match.component.html',
-    styleUrl: './match.component.scss',
-    imports: [ScoreRowComponent, ButtonComponent, ModalComponent]
+  selector: 'app-match',
+  standalone: true,
+  templateUrl: './match.component.html',
+  styleUrl: './match.component.scss',
+  imports: [ScoreRowComponent, ButtonComponent, ModalComponent],
 })
 export class MatchComponent {
   @Input() players: Player[] = [];
@@ -16,10 +23,7 @@ export class MatchComponent {
   selectedPlayer: Player | null = null;
   showModal: boolean = false;
 
-  constructor(
-    private injector: EnvironmentInjector,
-  ) {
-  }
+  constructor(private injector: EnvironmentInjector) {}
 
   openModal(player: Player) {
     this.selectedPlayer = player;
@@ -28,6 +32,10 @@ export class MatchComponent {
 
   closeModal() {
     this.showModal = false;
+  }
+
+  onEditName(event:any) {
+    this.selectedPlayer!.name = event.target.value;
   }
 }
 
