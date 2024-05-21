@@ -1,0 +1,63 @@
+:host {
+  --background: #ffffff;
+  --background: radial-gradient(circle, #ffffff 0em, #a89e8f 0.5em);
+
+  display: block;
+  background: var(--background);
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0.05em 0.1em #00000077, 0 0.1em 0.4em #0000006e,
+    inset 0 0 0.15em #17300f;
+  user-select: none;
+}
+
+.color-strip,
+.number,
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.color-strip {
+  width: 60%;
+  mix-blend-mode: multiply;
+
+  &.fill {
+    width: unset;
+  }
+}
+
+.number {
+  background: var(--background);
+  border-radius: 50%;
+  width: 50%;
+  height: 50%;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & > span {
+    text-align: center;
+    line-height: 1em;
+    font-weight: 900;
+    font-family: "Times New Roman", Times, serif;
+  }
+}
+
+.overlay {
+  background-position: 1em 0em;
+  background: radial-gradient(
+    at 65% 25%,
+    #fff9d5a4 0%,
+    #fff9d52d 30%,
+    #fff9d500 55%,
+    rgb(4, 78, 10)
+  );
+  mix-blend-mode: overlay;
+}

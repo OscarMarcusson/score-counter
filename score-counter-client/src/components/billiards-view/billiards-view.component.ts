@@ -1,15 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, HostBinding, HostListener, Input } from '@angular/core';
+import { BilliardsBallComponent } from "../billiards-ball/billiards-ball.component";
 
 @Component({
     selector: 'app-billiards-view',
     standalone: true,
-    imports: [
-        CommonModule,
-    ],
     templateUrl: './billiards-view.component.html',
     styleUrl: './billiards-view.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [
+        CommonModule,
+        BilliardsBallComponent
+    ]
 })
 export class BilliardsViewComponent {
     @Input()

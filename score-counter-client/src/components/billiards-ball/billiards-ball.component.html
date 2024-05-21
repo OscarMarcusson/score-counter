@@ -1,0 +1,11 @@
+<div
+  class="color-strip"
+  [class.fill]="colorFill"
+  [style.background]="color"
+></div>
+@if (number != null) {
+<div class="number">
+  <span [style.fontSize.px]="size * 0.4">{{ number }}</span>
+</div>
+}
+<div class="overlay"></div>

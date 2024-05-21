@@ -41,4 +41,63 @@
   <div class="hole bottom right" [style.fontSize.px]="size">
     <div class="hole-model"></div>
   </div>
+
+  <div class="balls" [style.fontSize.px]="size">
+    <div class="row" [style.fontSize.px]="size">
+      <app-billiards-ball
+        [size]="size * 10"
+        [number]="5"
+        [color]="'#fa802a'"
+      ></app-billiards-ball>
+    </div>
+    <div class="row" [style.fontSize.px]="size">
+      <app-billiards-ball
+        [size]="size * 10"
+        [number]="7"
+        [color]="'#700d26'"
+      ></app-billiards-ball>
+      <app-billiards-ball
+        [size]="size * 10"
+        [number]="8"
+        [color]="'#05071a'"
+      ></app-billiards-ball>
+    </div>
+    <div class="row" [style.fontSize.px]="size">
+      <app-billiards-ball
+        [size]="size * 10"
+        [number]="4"
+        [color]="'#622bc2'"
+      ></app-billiards-ball>
+      <app-billiards-ball
+        [size]="size * 10"
+        [number]="9"
+        [colorFill]="false"
+        [color]="'#ffc012'"
+      ></app-billiards-ball>
+      <app-billiards-ball
+        [size]="size * 10"
+        [number]="6"
+        [color]="'#0d7051'"
+      ></app-billiards-ball>
+    </div>
+    <div class="row" [style.fontSize.px]="size">
+      <app-billiards-ball
+        [size]="size * 10"
+        [number]="2"
+        [color]="'#4340de'"
+      ></app-billiards-ball>
+      <app-billiards-ball
+        [size]="size * 10"
+        [number]="3"
+        [color]="'#e03131'"
+      ></app-billiards-ball>
+    </div>
+    <div class="row" [style.fontSize.px]="size">
+      <app-billiards-ball
+        [size]="size * 10"
+        [number]="1"
+        [color]="'#ffc012'"
+      ></app-billiards-ball>
+    </div>
+  </div>
 </div>

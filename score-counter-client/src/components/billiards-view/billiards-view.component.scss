@@ -88,6 +88,24 @@
   }
 }
 
+.balls {
+  position: absolute;
+  left: 0;
+  top: 30em;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  & > .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2em;
+  }
+}
+
 :host.show-areas {
   background: var(--outline-bad-fill);
   .view {
