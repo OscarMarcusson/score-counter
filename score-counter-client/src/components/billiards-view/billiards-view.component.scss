@@ -89,9 +89,10 @@
 }
 
 .balls {
+  --top-margin: 30em;
   position: absolute;
   left: 0;
-  top: 30em;
+  top: var(--top-margin);
   right: 0;
   display: flex;
   justify-content: center;
@@ -104,10 +105,40 @@
     justify-content: center;
     gap: 2em;
   }
+
+  &.horizontal {
+    top: 0;
+    right: var(--top-margin);
+    bottom: 0;
+    left: unset;
+    flex-direction: row-reverse;
+
+    & > .row {
+      flex-direction: column;
+    }
+  }
+}
+
+.outside,
+.table-click-area {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
 }
 
 :host.show-areas {
-  background: var(--outline-bad-fill);
+  .outside {
+    background: var(--outline-bad-fill);
+  }
+
+  &:not(.mouse-over-table):hover {
+    --outline-bad: #ff6f87;
+    --outline-bad-fill: #ff00006e;
+  }
+
   .view {
     outline: 2px dotted var(--outline-bad);
   }
@@ -119,5 +150,15 @@
   .hole {
     background: var(--outline-fill);
     outline: 2px dotted var(--outline);
+
+    &:hover {
+      // filter: brightness(2);
+      --outline: #2ee0ff;
+      --outline-fill: #1381ff4d;
+    }
+  }
+
+  .balls {
+    pointer-events: none;
   }
 }

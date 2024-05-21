@@ -1,9 +1,13 @@
+<div class="outside" (click)="onClickOutside()"></div>
+
 <div
   class="view"
   [style.width.px]="width"
   [style.height.px]="height"
   [style.borderRadius.px]="width * 0.05"
   [style.fontSize.px]="size"
+  (mouseover)="mouseOverTable = true"
+  (mouseout)="mouseOverTable = false"
 >
   <div
     class="play-area"
@@ -13,46 +17,64 @@
     <div class="line" [style.fontSize.px]="size"></div>
   </div>
 
-  <div class="hole top left" [style.fontSize.px]="size">
+  @if (showAreas) {
+  <div class="table-click-area" (click)="onClickTable()"></div>
+  }
+
+  <div class="hole top left" [style.fontSize.px]="size" (click)="onClickHole()">
     <div class="hole-model"></div>
   </div>
-  <div class="hole top right" [style.fontSize.px]="size">
+  <div
+    class="hole top right"
+    [style.fontSize.px]="size"
+    (click)="onClickHole()"
+  >
     <div class="hole-model"></div>
   </div>
   @if (horizontal) {
 
-  <div class="hole top" [style.fontSize.px]="size">
+  <div class="hole top" [style.fontSize.px]="size" (click)="onClickHole()">
     <div class="hole-model"></div>
   </div>
-  <div class="hole bottom" [style.fontSize.px]="size">
+  <div class="hole bottom" [style.fontSize.px]="size" (click)="onClickHole()">
     <div class="hole-model"></div>
   </div>
   } @else {
-  <div class="hole left" [style.fontSize.px]="size">
+  <div class="hole left" [style.fontSize.px]="size" (click)="onClickHole()">
     <div class="hole-model"></div>
   </div>
-  <div class="hole right" [style.fontSize.px]="size">
+  <div class="hole right" [style.fontSize.px]="size" (click)="onClickHole()">
     <div class="hole-model"></div>
   </div>
   }
-  <div class="hole bottom left" [style.fontSize.px]="size">
+  <div
+    class="hole bottom left"
+    [style.fontSize.px]="size"
+    (click)="onClickHole()"
+  >
     <div class="hole-model"></div>
   </div>
-  <div class="hole bottom right" [style.fontSize.px]="size">
+  <div
+    class="hole bottom right"
+    [style.fontSize.px]="size"
+    (click)="onClickHole()"
+  >
     <div class="hole-model"></div>
   </div>
 
   @if(rows) {
 
-  <div class="balls" [style.fontSize.px]="size">
-    @for (row of rows; track $index) {
+  <div class="balls" [style.fontSize.px]="size" [class.horizontal]="horizontal">
+    @for (row of ballDataRows; track $index) {
     <div class="row" [style.fontSize.px]="size">
       @for (ball of row; track $index) {
       <app-billiards-ball
-        [size]="size * 10"
-        [number]="ball?.number"
-        [color]="ball?.color"
-        [colorFill]="ball?.fill ?? true"
+        [size]="size * 13"
+        [number]="ball?.ball?.number"
+        [color]="ball?.ball?.color"
+        [colorFill]="ball?.ball?.fill ?? true"
+        [enabled]="ball?.enabled ?? true"
+        (click)="onClickBall(ball)"
       />
       }
     </div>
