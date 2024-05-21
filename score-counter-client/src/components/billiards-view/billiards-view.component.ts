@@ -1,6 +1,8 @@
-import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, HostBinding, HostListener, Input } from '@angular/core';
+import { CommonModule } from "@angular/common";
+import { Component, ChangeDetectionStrategy, Input, HostBinding, HostListener } from "@angular/core";
+import { BilliardsBallInformation } from "./data/BilliardsBallInformation";
 import { BilliardsBallComponent } from "../billiards-ball/billiards-ball.component";
+import { Monitor9Ball } from "./modes/monitor-9-ball";
 
 @Component({
     selector: 'app-billiards-view',
@@ -16,6 +18,9 @@ import { BilliardsBallComponent } from "../billiards-ball/billiards-ball.compone
 export class BilliardsViewComponent {
     @Input()
     edgeMarginPercentage: number = 5;
+
+    @Input()
+    rows: (BilliardsBallInformation | undefined)[][] = Monitor9Ball.layout;
 
     width: number = 0;
     height: number = 0;

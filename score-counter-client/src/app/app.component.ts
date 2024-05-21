@@ -4,7 +4,7 @@ import { ButtonComponent } from './button/button.component';
 import { ScoreRowComponent } from './score-row/score-row.component';
 import { MatchComponent, Player } from './match/match.component';
 import { Database } from '../utility/db';
-import { BilliardsViewComponent } from "../components/billiards-view/billiards-view.component";
+import { BilliardsViewComponent } from '../components/billiards-view/billiards-view.component';
 
 @Component({
     selector: 'app-root',
