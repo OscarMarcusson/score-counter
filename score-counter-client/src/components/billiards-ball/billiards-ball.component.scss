@@ -10,6 +10,13 @@
   box-shadow: 0 0.05em 0.1em #00000077, 0 0.1em 0.4em #0000006e,
     inset 0 0 0.15em #17300f;
   user-select: none;
+
+  &:not(.enabled) {
+    opacity: 0.8;
+    filter: grayscale(1) contrast(0.4);
+    outline: 2px solid black;
+    outline-offset: -1px;
+  }
 }
 
 .color-strip,

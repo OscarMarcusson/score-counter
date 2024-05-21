@@ -17,13 +17,17 @@ export class BilliardsBallComponent {
     @HostBinding("style.height.px")
     @HostBinding("style.fontSize.px")
     size: number = 20;
-
+    
     @Input()
     number: number | undefined;
-
+    
     @Input()
     colorFill: boolean = true;
-
+    
     @Input()
     color: string | undefined;
+    
+    @Input()
+    @HostBinding("class.enabled")
+    enabled: boolean = true;
 }
