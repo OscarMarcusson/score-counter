@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { ButtonComponent } from './button/button.component';
 import { ScoreRowComponent } from './score-row/score-row.component';
 import { MatchComponent, Player } from './match/match.component';
+import { Database } from '../utility/db';
 
 @Component({
   selector: 'app-root',
@@ -20,4 +21,12 @@ export class AppComponent {
     { name: 'Niko', score: -99 },
     { name: 'Oscar', score: 42 },
   ];
+
+  matchData = {};
+
+  ngOnInit() {
+    Database.getData('monitor-9ball').then(json => {
+      this.matchData = json;
+    });
+  }
 }

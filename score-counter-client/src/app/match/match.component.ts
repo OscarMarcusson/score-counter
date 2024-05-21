@@ -19,6 +19,8 @@ import { ModalComponent } from '../modal/modal.component';
 })
 export class MatchComponent {
   @Input() players: Player[] = [];
+  @Input() matchData: any = {};
+  
   @ViewChild('modal') modal: ElementRef<ModalComponent> = null!;
   selectedPlayer: Player | null = null;
   showModal: boolean = false;

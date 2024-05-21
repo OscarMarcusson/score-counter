@@ -1,0 +1,40 @@
+{
+    "name": "Monitor 9-ball",
+    "description": "TODO: Description",
+    "actions": {
+        "good": {
+            "two-in-a-row": {
+                "name": "Two normal balls",
+                "score": "+1"
+            },
+            "ball-5": {
+                "name": "The 5 ball",
+                "score": "+1"
+            },
+            "ball-9": {
+                "name": "The 9 ball",
+                "score": "+2"
+            }
+        },
+        "bad": {
+            "white-leave-table": {
+                "name": "The white ball left the table",
+                "score": "-1"
+            },
+            "ball-leave-table": {
+                "name": "A ball left the table",
+                "score": "-1"
+            },
+            "white-in-hole": {
+                "name": "Set the white ball in a hole",
+                "score": "-1"
+            },
+            "miss": {
+                "name": "Hit nothing"
+            },
+            "wrong-first": {
+                "name": "Hit the wrong ball"
+            }
+        }
+    }
+}
