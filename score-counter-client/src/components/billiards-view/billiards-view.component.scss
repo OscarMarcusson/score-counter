@@ -5,10 +5,12 @@
 
   --outline: #0066ff;
   --outline-fill: #0066ff25;
+
+  --outline-bad: #ff0000;
+  --outline-bad-fill: #ff000025;
+
   --wood-top: #ffffff17;
   --wood-bottom: #00000042;
-
-  // background: var(--outline-fill);
 }
 
 .view {
@@ -23,7 +25,6 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  // outline: 2px dotted var(--outline);
 }
 
 .play-area {
@@ -55,8 +56,6 @@
   position: absolute;
   border-radius: 50%;
   overflow: hidden;
-  background: var(--outline-fill);
-  outline: 2px dotted var(--outline);
 
   --margin: -17em;
   &.left {
@@ -86,5 +85,21 @@
     background: #140d06;
     background: radial-gradient(circle, #140d06 50%, #000000 100%);
     box-shadow: 0 0.5em 0.5em var(--wood-top), 0 -0.5em 0.5em var(--wood-bottom);
+  }
+}
+
+:host.show-areas {
+  background: var(--outline-bad-fill);
+  .view {
+    outline: 2px dotted var(--outline-bad);
+  }
+
+  .play-area {
+    filter: grayscale(0.9);
+  }
+
+  .hole {
+    background: var(--outline-fill);
+    outline: 2px dotted var(--outline);
   }
 }

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, HostListener, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, HostListener, Input } from '@angular/core';
 
 @Component({
     selector: 'app-billiards-view',
@@ -19,6 +19,9 @@ export class BilliardsViewComponent {
     height: number = 0;
     size: number = 0;
     horizontal: boolean = false;
+
+    @HostBinding("class.show-areas")
+    showAreas: boolean = false;
 
     constructor() {
         this.onResize();
