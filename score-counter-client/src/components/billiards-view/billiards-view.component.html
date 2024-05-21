@@ -1,0 +1,44 @@
+<div
+  class="view"
+  [style.width.px]="width"
+  [style.height.px]="height"
+  [style.borderRadius.px]="width * 0.05"
+  [style.fontSize.px]="size"
+>
+  <div
+    class="play-area"
+    [style.borderRadius.px]="width * 0.03"
+    [style.fontSize.px]="size"
+  >
+    <div class="line" [style.fontSize.px]="size"></div>
+  </div>
+
+  <div class="hole top left" [style.fontSize.px]="size">
+    <div class="hole-model"></div>
+  </div>
+  <div class="hole top right" [style.fontSize.px]="size">
+    <div class="hole-model"></div>
+  </div>
+  @if (horizontal) {
+
+  <div class="hole top" [style.fontSize.px]="size">
+    <div class="hole-model"></div>
+  </div>
+  <div class="hole bottom" [style.fontSize.px]="size">
+    <div class="hole-model"></div>
+  </div>
+  } @else {
+  <div class="hole left" [style.fontSize.px]="size">
+    <div class="hole-model"></div>
+  </div>
+  <div class="hole right" [style.fontSize.px]="size">
+    <div class="hole-model"></div>
+  </div>
+  }
+  <div class="hole bottom left" [style.fontSize.px]="size">
+    <div class="hole-model"></div>
+  </div>
+  <div class="hole bottom right" [style.fontSize.px]="size">
+    <div class="hole-model"></div>
+  </div>
+</div>

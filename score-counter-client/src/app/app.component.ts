@@ -4,13 +4,14 @@ import { ButtonComponent } from './button/button.component';
 import { ScoreRowComponent } from './score-row/score-row.component';
 import { MatchComponent, Player } from './match/match.component';
 import { Database } from '../utility/db';
+import { BilliardsViewComponent } from "../components/billiards-view/billiards-view.component";
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, ButtonComponent, ScoreRowComponent, MatchComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+    selector: 'app-root',
+    standalone: true,
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss',
+    imports: [RouterOutlet, ButtonComponent, ScoreRowComponent, MatchComponent, BilliardsViewComponent]
 })
 export class AppComponent {
   title = 'score-counter-client';

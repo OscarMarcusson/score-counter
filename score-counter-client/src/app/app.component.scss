@@ -33,3 +33,11 @@
     box-shadow: 0 5px 10px var(--shadow-hard), 0 12px 30px var(--shadow);
   }
 }
+
+app-billiards-view {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}

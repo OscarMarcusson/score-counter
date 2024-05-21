@@ -1,0 +1,90 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  --outline: #0066ff;
+  --outline-fill: #0066ff25;
+  --wood-top: #ffffff17;
+  --wood-bottom: #00000042;
+
+  // background: var(--outline-fill);
+}
+
+.view {
+  position: relative;
+  box-sizing: border-box;
+  margin: auto;
+  background: #251b13;
+  box-shadow: 0 1em 2em black, inset 0 0.3em 0.1em var(--wood-top),
+    inset 0 0.3em 0.1em var(--wood-bottom);
+  aspect-ratio: 0.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  // outline: 2px dotted var(--outline);
+}
+
+.play-area {
+  box-sizing: border-box;
+  position: absolute;
+  left: 7em;
+  top: 7em;
+  right: 7em;
+  bottom: 7em;
+  background: #1c611c;
+  box-shadow: inset 0 0.5em 4em #050f05a4, inset 0 2em 10em #0914093b,
+    0 0.5em 0.5em var(--wood-top), 0 -0.5em 0.5em var(--wood-bottom);
+
+  .line {
+    --margin: 6em;
+    position: absolute;
+    left: var(--margin);
+    top: var(--margin);
+    right: var(--margin);
+    bottom: var(--margin);
+    border: max(2px, 0.5em) solid rgba(0, 0, 0, 0.13);
+  }
+}
+
+.hole {
+  display: block;
+  width: round(50em);
+  height: round(50em);
+  position: absolute;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--outline-fill);
+  outline: 2px dotted var(--outline);
+
+  --margin: -17em;
+  &.left {
+    left: var(--margin);
+  }
+  &.right {
+    right: var(--margin);
+  }
+  &.top {
+    top: var(--margin);
+  }
+  &.bottom {
+    bottom: var(--margin);
+  }
+
+  & > .hole-model {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 10em;
+    height: 10em;
+    margin: auto;
+    border-radius: 50%;
+    display: block;
+    background: #140d06;
+    background: radial-gradient(circle, #140d06 50%, #000000 100%);
+    box-shadow: 0 0.5em 0.5em var(--wood-top), 0 -0.5em 0.5em var(--wood-bottom);
+  }
+}
