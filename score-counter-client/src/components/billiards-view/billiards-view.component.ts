@@ -1,5 +1,5 @@
 import { CommonModule } from "@angular/common";
-import { Component, ChangeDetectionStrategy, Input, HostBinding, HostListener, SimpleChanges, Output, EventEmitter } from "@angular/core";
+import { Component, ChangeDetectionStrategy, Input, HostBinding, HostListener, SimpleChanges, Output, EventEmitter, viewChild, ElementRef, ViewChild, ChangeDetectorRef } from "@angular/core";
 import { BilliardsBallInformation } from "./data/BilliardsBallInformation";
 import { BilliardsBallComponent } from "../billiards-ball/billiards-ball.component";
 import { Monitor9Ball } from "./modes/monitor-9-ball";
@@ -39,8 +39,12 @@ export class BilliardsViewComponent {
     @HostBinding("class.show-areas")
     showAreas: boolean = false;
 
+    @ViewChild("outside")
+    outsideRef: ElementRef = null!;
+
+    constructor(private changeDetectionRef: ChangeDetectorRef) { }
+
     ngOnInit() {
-        this.onResize();
         this.ngOnChanges(<any>{
             rows: {
                 currentValue: this.rows,
@@ -48,6 +52,12 @@ export class BilliardsViewComponent {
                 previousValue: undefined,
             }
         })
+    }
+
+    ngAfterViewInit() {
+        this.onResize();
+        // Angular, for whatever reason, does not detect changes automaticaly here...
+        this.changeDetectionRef.detectChanges();
     }
 
     ngOnChanges(changes: SimpleChanges) {
@@ -76,15 +86,20 @@ export class BilliardsViewComponent {
 
     @HostListener('window:resize')
     onResize() {
-        const min = Math.min(window.innerHeight, window.innerWidth);
-        const max = Math.max(window.innerHeight, window.innerWidth);
+        if (!this.outsideRef) return;
+        const hostSizeElement = this.outsideRef.nativeElement as HTMLElement;
+        const availableWidth = hostSizeElement.clientWidth;
+        const availableHeight = hostSizeElement.clientHeight;
+
+        const min = Math.min(availableHeight, availableWidth);
+        const max = Math.max(availableHeight, availableWidth);
 
         const margin = ((100 - this.edgeMarginPercentage) * 0.01);
         this.width = Math.round(Math.min(min, max * 0.5) * margin);
         this.height = this.width * 2;
         this.size = Math.min(this.width, this.height) * 0.01;
 
-        this.horizontal = window.innerHeight < window.innerWidth;
+        this.horizontal = availableHeight < availableWidth;
         if (this.horizontal) {
             const t = this.height;
             this.height = this.width;
