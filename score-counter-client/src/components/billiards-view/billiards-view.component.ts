@@ -105,6 +105,7 @@ export class BilliardsViewComponent {
         if (!this.showAreas) return;
 
         this.showAreas = false;
+        this.currentBall = undefined;
         console.warn("inside");
     }
 
@@ -112,6 +113,7 @@ export class BilliardsViewComponent {
         if (!this.showAreas) return;
 
         this.showAreas = false;
+        this.currentBall = undefined;
         console.warn("outside");
     }
 

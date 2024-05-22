@@ -74,6 +74,8 @@
         [color]="ball?.ball?.color"
         [colorFill]="ball?.ball?.fill ?? true"
         [enabled]="ball?.enabled ?? true"
+        [fade]="(currentBall && currentBall != ball) ?? false"
+        [highlight]="(currentBall && currentBall == ball) ?? false"
         (click)="onClickBall(ball)"
       />
       }

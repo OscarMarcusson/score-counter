@@ -30,4 +30,12 @@ export class BilliardsBallComponent {
     @Input()
     @HostBinding("class.enabled")
     enabled: boolean = true;
+
+    @Input()
+    @HostBinding("class.fade")
+    fade: boolean = false;
+
+    @Input()
+    @HostBinding("class.highlight")
+    highlight: boolean = false;
 }
