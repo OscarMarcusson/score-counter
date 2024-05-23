@@ -1,23 +1,15 @@
 :host {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-
-  --outline: #0066ff;
-  --outline-fill: #0066ff25;
-
-  --outline-bad: #ff0000;
-  --outline-bad-fill: #ff000025;
-
-  --wood-top: #ffffff17;
-  --wood-bottom: #00000042;
 }
 
 .view {
   position: relative;
   box-sizing: border-box;
   margin: auto;
-  background: #251b13;
+  background: var(--wood);
   box-shadow: 0 1em 2em black, inset 0 0.3em 0.1em var(--wood-top),
     inset 0 0.3em 0.1em var(--wood-bottom);
   aspect-ratio: 0.5;
@@ -34,7 +26,7 @@
   top: 7em;
   right: 7em;
   bottom: 7em;
-  background: #1c611c;
+  background: var(--billiards-cloth);
   box-shadow: inset 0 0.5em 4em #050f05a4, inset 0 2em 10em #0914093b,
     0 0.5em 0.5em var(--wood-top), 0 -0.5em 0.5em var(--wood-bottom);
 
@@ -132,11 +124,14 @@
 :host.show-areas {
   .outside {
     background: var(--outline-bad-fill);
+    outline: 2px dotted var(--outline-bad);
+    outline-offset: -2px;
+    border-radius: 1em;
   }
 
   &:not(.mouse-over-table):hover {
-    --outline-bad: #ff6f87;
-    --outline-bad-fill: #ff00006e;
+    --outline-bad: var(--outline-bad-highlight);
+    --outline-bad-fill: var(--outline-bad-fill-highlight);
   }
 
   .view {

@@ -18,6 +18,19 @@ html {
   --shadow-hard: rgba(0, 0, 0, 0.15);
   --highlight: #f7f7f7;
 
+  --outline: #0066ff;
+  --outline-fill: #0066ff25;
+  --outline-bad: #ac0000;
+  --outline-bad-fill: #ff000025;
+  --outline-bad-highlight: #ff002b;
+  --outline-bad-fill-highlight: #ff000038;
+
+  --wood: #5f452e;
+  --wood-top: #ffffff41;
+  --wood-bottom: #0000008c;
+
+  --billiards-cloth: #357435;
+
   // Apply default colors
   color: var(--text-primary-color);
   background: var(--background);
@@ -28,7 +41,8 @@ html {
 }
 
 // Window layout
-body, html {
+body,
+html {
   position: absolute;
   left: 0;
   top: 0;
@@ -41,8 +55,8 @@ body, html {
 }
 
 body {
-    max-width: 700px;
-    margin: auto;
+  max-width: 700px;
+  margin: auto;
 }
 
 // Dark mode
@@ -59,5 +73,18 @@ body {
     --shadow: rgba(0, 0, 0, 0.4);
     --shadow-hard: rgba(0, 0, 0, 0.6);
     --highlight: #2c2c31;
+
+    --outline: #0066ff;
+    --outline-fill: #0066ff25;
+    --outline-bad: #ff0000;
+    --outline-bad-fill: #ff000025;
+    --outline-bad-highlight: #ff6f87;
+    --outline-bad-fill-highlight: #ff000054;
+
+    --wood: #2c2017;
+    --wood-top: #ffffff17;
+    --wood-bottom: #00000042;
+
+    --billiards-cloth: #1c611c;
   }
 }
