@@ -72,6 +72,10 @@ export class Monitor9Ball {
                 }
                 break;
 
+            case undefined:
+                alert("white in hole");
+                break;
+
             default:
                 ball.enabled = false;
                 break;

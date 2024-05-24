@@ -31,6 +31,7 @@ export class BilliardsViewComponent {
     horizontal: boolean = false;
     ballDataRows: BilliardsBallModel[][] = [];
     ballRecord: Record<number, BilliardsBallModel> = {};
+    whiteBall: BilliardsBallModel | undefined;
     currentBall: BilliardsBallModel | undefined;
 
     @HostBinding("class.mouse-over-table")
@@ -45,6 +46,15 @@ export class BilliardsViewComponent {
     constructor(private changeDetectionRef: ChangeDetectorRef) { }
 
     ngOnInit() {
+        // TODO: Switch depending on type?
+        this.whiteBall = {
+            ball: {
+                color: undefined,
+                fill: false,
+                number: undefined,
+            },
+            enabled: true,
+        }
         this.ngOnChanges(<any>{
             rows: {
                 currentValue: this.rows,
@@ -117,33 +127,32 @@ export class BilliardsViewComponent {
     }
 
     onClickTable() {
-        if (!this.showAreas) return;
-
-        this.showAreas = false;
-        this.currentBall = undefined;
-        console.warn("inside");
+        this.releaseSelectedBall();;
     }
 
     onClickOutside() {
         if (!this.showAreas) return;
 
-        this.showAreas = false;
-        this.currentBall = undefined;
         console.warn("outside");
+        this.releaseSelectedBall();
     }
 
     onClickHole() {
         if (!this.showAreas) return;
 
-        this.showAreas = false;
         if (this.currentBall) {
             this.setBall(this.currentBall);
-            this.currentBall = undefined;
         }
+        this.releaseSelectedBall();
     }
 
     setBall(ball: BilliardsBallModel) {
         Monitor9Ball.onSetBall(ball, this.ballRecord);
+    }
+
+    private releaseSelectedBall() {
+        this.showAreas = false;
+        this.currentBall = undefined;
     }
 }
 

@@ -74,13 +74,22 @@
         [color]="ball?.ball?.color"
         [colorFill]="ball?.ball?.fill ?? true"
         [enabled]="ball?.enabled ?? true"
-        [fade]="(currentBall && currentBall != ball) ?? false"
-        [highlight]="(currentBall && currentBall == ball) ?? false"
+        [fade]="(currentBall != ball ?? false) && currentBall != null"
+        [highlight]="(currentBall == ball ?? false) && currentBall != null"
         (click)="onClickBall(ball)"
       />
       }
     </div>
     }
+  </div>
+  } @if(whiteBall) {
+  <div class="white-ball" [style.fontSize.px]="size">
+    <app-billiards-ball
+      [size]="size * 13"
+      [fade]="(currentBall != whiteBall ?? false) && currentBall != null"
+      [highlight]="(currentBall == whiteBall ?? false) && currentBall != null"
+      (click)="onClickBall(whiteBall)"
+    />
   </div>
   }
 </div>

@@ -111,6 +111,17 @@
   }
 }
 
+.white-ball {
+  position: absolute;
+  margin: auto;
+  left: 0;
+  bottom: 50em;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .outside,
 .table-click-area {
   position: absolute;
