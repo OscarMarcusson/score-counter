@@ -1,28 +1,12 @@
 <main class="main">
-  <div class="game-layout">
-    <h1>Round 1</h1>
-    <div class="player">
-      <input class="name" value="Oscar" />
-      <p class="score">999</p>
-    </div>
-    <button class="end-round">
-      <span class="label">End round</span>
-      <span class="icon">✓</span>
-    </button>
-
-    <div class="game-view">
-      <app-billiards-view />
-    </div>
-  </div>
-
   <!-- <div class="menu">
     <app-button [text]="'Home'"/>
     <app-button [text]="'Statistics'"/>
     <app-button [text]="'Settings'"/>
-  </div>
-  <div class="scores">
+  </div> -->
+  <!-- <div class="scores">
     <app-match [players]="players" [matchData]="matchData"></app-match>
   </div> -->
+  <router-outlet />
 </main>
 
-<router-outlet />
